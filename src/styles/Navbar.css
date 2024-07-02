@@ -1,0 +1,131 @@
+/* Navbar.css */
+.navbar {
+  position: fixed; /* Position navbar fixed to stay at the top */
+  top: 0; /* Align navbar to the top */
+  left: 0; /* Align navbar to the left */
+  width: 100%; /* Set navbar width to 100% */
+  background-color: #ffffff;
+  color: #947cff;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensure items are spaced between */
+  padding: 0 20px; /* Add padding to center content */
+  margin-left: 15px;
+  position: relative;
+}
+
+.logo-container {
+  display: flex; /* Ensure logo-container is a flex container */
+  align-items: center; /* Align items vertically */
+  margin-right: 20px;
+  margin-left: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-size: cover;
+  margin: 0; /* Reset margin */
+  padding: 0; /* Remove padding */
+}
+
+.logo-text {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold; /* Make logo bold */
+  margin-left: 15px;
+  display: inline;
+}
+
+.menu-icon {
+  display: none; /* Hide menu icon by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #c0adfd;
+}
+
+.nav-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end; /* Align items to the end */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  align-items: center; /* Align items vertically */
+}
+
+.nav-item {
+  margin-right: 30px;
+}
+
+.nav-link {
+  color: #2d00f4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 18px; /* Increase font size */
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  color: #3104fc;
+  text-decoration: underline;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4b24fb; /* Adjust button text color */
+  font-size: 18px; /* Adjust button font size */
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease; /* Add transition for hover effect */
+}
+
+.logout-button:hover {
+  color: white; /* Change color on hover */
+  text-decoration: none; /* Add underline on hover */
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 1000px) {
+  .menu-icon {
+    display: block; /* Display menu icon for smaller screens */
+  }
+
+  .nav-menu {
+    display: none; /* Hide menu items by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1; /* Ensure menu is above other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+  }
+
+  .nav-menu.active {
+    display: flex; /* Display menu items when active */
+  }
+
+  .nav-item {
+    margin: 0; /* Reset margin for smaller screens */
+    padding: 10px 20px;
+    border-bottom: 1px solid #666;
+  }
+
+  .nav-link {
+    font-size: 16px; /* Reduce font size for smaller screens */
+  }
+}

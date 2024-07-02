@@ -1,0 +1,177 @@
+/* Income.css */
+
+.income-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2d2fd;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.income-container {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 700px;
+  margin-right: none;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.income-heading {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.income-list {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.income-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e8e8ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.income-item:hover {
+  background-color: #d0d0ff;
+}
+
+.income-title,
+.income-amount,
+.income-date {
+  margin: 0 10px; /* Equal margin on left and right */
+}
+
+.income-title {
+  font-size: 18px;
+  color: #333;
+  flex: 2;
+}
+
+.income-amount {
+  font-size: 16px;
+  color: #007bff;
+  margin-right: 70px;
+  text-align: left;
+  flex: 1;
+}
+
+.income-date {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px; /* Equal margin on left and right */
+}
+
+.delete-button:hover {
+  background-color: #bd2130;
+}
+
+.add-income-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.add-income-form input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.add-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.total-income {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.total-income h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.total-income p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .income-container {
+    padding-top: 100px;
+    width: 100%;
+  }
+
+  .income-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px; /* Reduce the margin for smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .income-title,
+  .income-amount,
+  .income-date {
+    margin: 3px 0; /* Reduce the margin between elements */
+  }
+
+  .delete-button {
+    margin-top: 5px; /* Add top margin for spacing */
+  }
+
+  .add-income-form {
+    flex-direction: column; /* Stack form inputs vertically on smaller screens */
+    align-items: stretch; /* Ensure inputs take full width */
+  }
+
+  .add-income-form input {
+    margin-right: 0; /* Remove right margin for better spacing */
+    margin-bottom: 10px; /* Add bottom margin between inputs */
+    width: 100%; /* Ensure inputs take full width */
+  }
+
+  .add-button {
+    width: 100%; /* Ensure button takes full width */
+  }
+}

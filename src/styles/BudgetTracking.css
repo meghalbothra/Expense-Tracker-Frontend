@@ -1,0 +1,54 @@
+.budget-tracker-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .budget-tracker-container h2{
+    text-decoration: underline;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .bar-chart-container {
+    height: 400px;
+    margin-top: 20px;
+  }
+  
+  .bar-chart-container .recharts-wrapper {
+    font-family: Arial, sans-serif;
+  }
+  
+  .bar-chart-container .recharts-surface {
+    cursor: pointer;
+  }
+  
+  .bar-chart-container .recharts-cartesian-axis-tick {
+    fill: #555;
+  }
+  
+  .bar-chart-container .recharts-tooltip-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 10px;
+  }
+  
+  .bar-chart-container .recharts-tooltip-label {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .bar-chart-container .recharts-tooltip-item {
+    color: #555;
+  }
+  
+  .bar-chart-container .recharts-tooltip-item:before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #8884d8;
+    margin-right: 5px;
+    border-radius: 50%;
+  }

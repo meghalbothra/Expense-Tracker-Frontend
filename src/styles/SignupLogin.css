@@ -1,0 +1,135 @@
+/* SignupLogin.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d2d2fd;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #c9d3f4, #7b76fc, #5e3bfc);
+    border-radius: 30px;
+  }
+  
+  .auth-wrapper {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px 70px; /* Adjusted padding */
+    border-radius: 30px; /* Adjusted border-radius */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 10px;
+    color: #795bfc;
+  }
+  
+  .auth-form p {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .form-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #795bfc;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #795bfc;
+    box-shadow: 0 0 5px rgba(123, 118, 252, 0.5);
+  }
+
+  
+  .auth-button {
+    padding: 12px 20px;
+    background-color: #795bfc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .auth-button:disabled {
+    background-color: #ccc;
+  }
+  
+  .auth-button:hover {
+    background-color: #2e00fa;
+  }
+
+  .logo{
+    width: 70px;
+    margin-bottom: 20px; /* Add margin to logo */
+  }
+  
+  p a {
+    color: #795bfc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  p a:hover {
+    color: #2f00ff;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 600px) {
+    .auth-wrapper {
+      padding: 30px;
+    }
+    
+    .auth-form input {
+      font-size: 14px;
+    }
+  }
