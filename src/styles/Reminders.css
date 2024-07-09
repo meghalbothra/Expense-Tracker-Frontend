@@ -1,12 +1,31 @@
-/* styles/Reminders.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Adjust background color as needed */
+}
 
 .reminder-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 13px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 850px; /* Set width explicitly */
+    height: 790px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer 10+ */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.reminder-container::-webkit-scrollbar {
+    display: none;
 }
 
 .reminder-heading {
@@ -29,11 +48,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.reminder-item:hover{
+.reminder-item:hover {
     background-color: #d0d0ff;
 }
+
 .reminder-content {
     display: flex;
     flex-direction: column;
@@ -44,6 +65,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Ensure it takes full width */
 }
 
 .reminder-title {
@@ -61,32 +83,31 @@
 .reminder-date {
     font-size: 14px;
     color: #888;
-    flex-shrink: 0;
     margin-left: 20px;
+    margin-right: 20px;
 }
 
-.delete-button,
-.complete-button {
-    background-color: #ff4d4d;
+.reminder-delete-button,
+.reminder-complete-button {
+    background-color: #dc3545;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 9px 15px;
+    border-radius: 5px;
+    padding: 8px 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    width: 105px;
-    margin-left: 120px;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
 }
 
-.complete-button {
+.reminder-complete-button {
     background-color: #4CAF50;
 }
 
-.complete-button:hover {
+.reminder-complete-button:hover {
     background-color: #45a049;
 }
 
-.delete-button:hover {
+.reminder-delete-button:hover {
     background-color: #ff1a1a;
 }
 
@@ -123,11 +144,69 @@
     background-color: #45a049;
 }
 
-/* Toastify CSS override to fit the theme */
-.Toastify__toast--success {
-    background-color: #4CAF50 !important;
+.reminder-add-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.Toastify__toast--error {
-    background-color: #ff4d4d !important;
+@media (max-width: 768px) {
+    .reminder-container {
+        width: 100%;
+    }
+
+    .reminder-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        padding: 10px;
+        position: relative; /* Added for absolute positioning of date */
+    }
+
+    .reminder-title-date {
+        width: 70%; /* Ensure it takes full width */
+    }
+
+    .reminder-title {
+        width: calc(100% - 115px); /* Fixed size for title, 115px accounts for the date width and margins */
+    }
+
+    .reminder-date {
+        position: absolute; /* Make it absolute */
+        right: 15px; /* Position 15px from the right */
+        top: 10px; /* Adjust top position if needed */
+        margin-left: 0; /* Reset margin-left */
+    }
+
+    .reminder-actions {
+        display: flex;
+        justify-content: center;
+        width: 100%; 
+        margin-top: 8px;
+    }
+
+    .reminder-delete-button,
+    .reminder-complete-button {
+        width: auto;
+        margin-right: 30px;
+    }
+
+    .add-reminder-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-reminder-form input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .reminder-add-button {
+        width: 100%;
+    }
 }

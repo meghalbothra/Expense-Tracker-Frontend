@@ -149,7 +149,7 @@ const Expenses = ({ onExpenseChange }) => {
             <p className="expense-amount">${expense.amount}</p>
             <p className="expense-category">Category: {expense.category}</p>
             <p className="expense-date">{new Date(expense.date).toLocaleDateString()}</p>
-            <button className="delete-button" onClick={() => handleDeleteExpense(expense.id)}>Delete</button>
+            <button className="expense-delete-button" onClick={() => handleDeleteExpense(expense.id)}>Delete</button>
           </div>
         ))}
       </div>
@@ -177,7 +177,7 @@ const Expenses = ({ onExpenseChange }) => {
             <option key={index} value={category}>{category}</option>
           ))}
         </select>
-        <button className="add-button" onClick={handleAddExpense}>Add Expense</button>
+        <button className="expense-add-button" onClick={handleAddExpense}>Add Expense</button>
       </div>
       <div className="total-expenses">
         <h3>Total Expenses:</h3>

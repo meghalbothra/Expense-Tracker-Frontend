@@ -46,9 +46,6 @@ const Navbar = () => {
             <a href="/reminders" className="nav-link">Reminder</a>
           </li> 
           <li className="nav-item">
-            <a href="/notifications" className="nav-link"><AiOutlineBell />Notifications</a>
-          </li>
-          <li className="nav-item">
             <button className="nav-link logout-button" onClick={handleLogout}>
               <AiOutlineLogout />
               Logout

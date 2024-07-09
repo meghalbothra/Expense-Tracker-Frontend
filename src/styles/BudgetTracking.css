@@ -13,6 +13,7 @@
   .bar-chart-container {
     height: 400px;
     margin-top: 20px;
+    width: 800px;
   }
   
   .bar-chart-container .recharts-wrapper {

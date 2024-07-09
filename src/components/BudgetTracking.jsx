@@ -10,7 +10,7 @@ const BudgetTracker = () => {
   const [error, setError] = useState(null);
   const location = useLocation();
 
-  const allCategories = ['Housing', 'Food', 'Transportation', 'Utilities', 'Entertainment', 'Health', 'Education', 'Miscellaneous'];
+  const allCategories = [ 'Education', 'Utilities', 'Entertainment', 'Health', 'Miscellaneous','Housing', 'Food', 'Transportation'];
 
   const fetchData = async () => {
     try {

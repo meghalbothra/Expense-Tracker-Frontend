@@ -188,13 +188,15 @@ const Reminders = () => {
                                 <p className="reminder-date">{new Date(reminder.date).toLocaleDateString()}</p>
                             </div>
                         </div>
-                        <button
-                            className="complete-button"
-                            onClick={() => handleToggleCompletion(reminder.id)}
-                        >
-                            {reminder.completed ? 'Undo' : 'Complete'}
-                        </button>
-                        <button className="delete-button" onClick={() => handleDeleteReminder(reminder.id)}>Delete</button>
+                        <div className="reminder-actions">
+                            <button
+                                className="reminder-complete-button"
+                                onClick={() => handleToggleCompletion(reminder.id)}
+                            >
+                                {reminder.completed ? 'Undo' : 'Complete'}
+                            </button>
+                            <button className="reminder-delete-button" onClick={() => handleDeleteReminder(reminder.id)}>Delete</button>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -213,7 +215,7 @@ const Reminders = () => {
                     value={newReminder.date}
                     onChange={handleInputChange}
                 />
-                <button className="add-button" onClick={handleAddReminder}>Add Reminder</button>
+                <button className="reminder-add-button" onClick={handleAddReminder}>Add Reminder</button>
             </div>
         </div>
     );

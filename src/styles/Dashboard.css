@@ -1,12 +1,28 @@
-/* Dashboard.css */
+body, html {
+  overflow-x: hidden; /* Ensure no horizontal scrolling */
+}
+
 .dashboard-container {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 900px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  overflow-x: hidden; /* Hide horizontal scrolling */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 30px;
-  margin-top: 3470px;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For IE and Edge */
+}
+
+.dashboard-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers (like Chrome and Safari) */
 }
 
 .dashboard-content {
@@ -15,6 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 .dashboard-section {
@@ -23,19 +40,77 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
+  max-width: 100%; /* Ensure it doesn't overflow horizontally */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center the section */
 }
 
-.dashboard-section-graph{
+.dashboard-section-graph {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-right: 50px;
-  padding-left: 50px;
-  height: 100%;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't overflow horizontally */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center the graph section */
 }
 
-.dashboard-section-graph h2{
+.dashboard-section-graph h2 {
   text-decoration: underline;
   text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .dashboard-content {
+    max-width: 100%;
+  }
+
+  .dashboard-section,
+  .dashboard-section-graph {
+    padding: 15px;
+    margin: 0 auto; /* Center the section */
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .dashboard-section,
+  .dashboard-section-graph {
+    padding: 10px;
+    margin: 0 auto; /* Center the section */
+  }
+
+  .dashboard-section-graph h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .dashboard-section,
+  .dashboard-section-graph {
+    padding: 10px;
+    margin: 0 auto; /* Center the section */
+  }
+
+  .dashboard-section-graph h2 {
+    font-size: 16px;
+  }
 }

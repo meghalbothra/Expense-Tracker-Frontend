@@ -1,6 +1,8 @@
+/* AIInsights.css */
 .ai-insights {
-  padding-left: 40px;
   padding: 20px;
+  margin: auto;
+  max-width: 1200px;
 }
 
 .ai-insights h2 {
@@ -14,6 +16,7 @@
 .ai-insights ul {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 .ai-insights li {
@@ -21,6 +24,7 @@
   color: #555;
   margin-bottom: 10px;
   line-height: 1.5;
+  text-align: center; /* Align text to the left */
 }
 
 .ai-insights li:first-child {
@@ -34,4 +38,37 @@
 
 .ai-insights li.red-color {
   color: red;
+}
+
+@media (max-width: 768px) {
+  .ai-insights {
+    padding: 15px;
+  }
+
+  .ai-insights h2 {
+    font-size: 20px;
+  }
+
+  .ai-insights li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-insights {
+    padding: 10px;
+  }
+
+  .ai-insights h2 {
+    font-size: 18px;
+  }
+
+  .ai-insights li {
+    font-size: 14px;
+  }
+
+  .ai-insights li {
+    display: block;
+    white-space: pre-line; /* Allows breaking lines within the text */
+  }
 }
