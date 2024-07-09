@@ -1,15 +1,38 @@
 /* AIInsights.css */
+body {
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .ai-insights {
-  padding: 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
   margin: auto;
-  max-width: 1200px;
+  max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-insights:hover {
+  transform: translateY(-5px);
+  
 }
 
 .ai-insights h2 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 15px;
+  font-size: 26px;
+  color: #333333;
+  margin-bottom: 20px;
   text-align: center;
+  position: relative;
+  font-weight: 600;
   text-decoration: underline;
 }
 
@@ -17,14 +40,32 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  text-align: left;
 }
 
 .ai-insights li {
   font-size: 18px;
-  color: #555;
-  margin-bottom: 10px;
-  line-height: 1.5;
-  text-align: center; /* Align text to the left */
+  color: #555555;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 20px;
+  text-align: left;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.ai-insights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 24px;
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.ai-insights li:hover {
+  color: #007bff;
 }
 
 .ai-insights li:first-child {
@@ -42,11 +83,11 @@
 
 @media (max-width: 768px) {
   .ai-insights {
-    padding: 15px;
+    padding: 25px;
   }
 
   .ai-insights h2 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .ai-insights li {
@@ -56,18 +97,15 @@
 
 @media (max-width: 480px) {
   .ai-insights {
-    padding: 10px;
+    padding: 20px;
   }
 
   .ai-insights h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .ai-insights li {
     font-size: 14px;
-  }
-
-  .ai-insights li {
     display: block;
     white-space: pre-line; /* Allows breaking lines within the text */
   }

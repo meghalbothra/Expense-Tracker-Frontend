@@ -146,21 +146,20 @@
 @media (max-width: 768px) {
   .expenses-container {
     width: 100%;
+
   }
 
   .expense-item {
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 20px; /* Reduce the margin for smaller screens */
+    margin-bottom: 10px; /* Reduce the margin for smaller screens */
     padding: 10px; /* Adjust padding for smaller screens */
   }
 
   .expense-title,
   .expense-category,
   .expense-amount{
-    margin: 5px 0; /* Adjust the margin between elements */
-    width: 100%; /* Ensure elements take full width */
-    text-align: left; /* Align text to the left */
+    margin: 3px 0; /* Adjust the margin between elements */
   }
 
   .expense-delete-button {
@@ -171,12 +170,18 @@
   .add-expense-form {
     flex-direction: column; /* Stack form inputs vertically on smaller screens */
     align-items: stretch; /* Ensure inputs take full width */
+    margin: 0;
   }
 
   .add-expense-form input,
   .add-expense-form select,
   .expense-add-button {
-    width: 70%; /* Ensure inputs and button take full width */
-    margin: 10px auto; /* Adjust margin for better spacing */
+    margin-right: 0; /* Remove right margin for better spacing */
+    margin-bottom: 10px; /* Add bottom margin between inputs */
+    width: 90%; /* Ensure inputs take full width */
+  }
+
+  .expenses-heading {   
+      margin-top: 50px;
   }
 }

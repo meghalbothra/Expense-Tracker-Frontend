@@ -158,21 +158,26 @@
   .delete-button {
     margin-top: 5px; /* Add top margin for spacing */
     align-self: flex-end;
-    width: 30px;
+    /* width: 30px; */
   }
 
   .add-income-form {
     flex-direction: column; /* Stack form inputs vertically on smaller screens */
     align-items: stretch; /* Ensure inputs take full width */
+    margin : 0;
   }
 
   .add-income-form input {
     margin-right: 0; /* Remove right margin for better spacing */
     margin-bottom: 10px; /* Add bottom margin between inputs */
-    width: 100%; /* Ensure inputs take full width */
+    width: 90%; /* Ensure inputs take full width */
   }
 
   .add-button {
     width: 100%; /* Ensure button takes full width */
+  }
+
+  .income-heading{
+    margin-top: 50px;
   }
 }

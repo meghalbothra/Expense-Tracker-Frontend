@@ -1,125 +1,170 @@
 /* Profile.css */
+body {
+  background: linear-gradient(135deg, #e0dafb 0%, #ae9cff 100%);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Prevents scrolling */
+}
 
 .profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
 .profile-card {
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background: linear-gradient(135deg, #fff, #f0f0ff);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
   width: 400px;
-  max-width: 90%;
-  border-radius: 8px;
-  overflow: hidden; /* Ensures rounded corners don't overlap child elements */
+  max-width: 100%;
+  border-radius: 20px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .cross-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   background-color: transparent;
   border: none;
   font-size: 20px;
-  color: #555555;
+  color: #888;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .profile-heading {
-  text-align: center;
   margin-bottom: 20px;
-  font-size: 24px;
-  color: #333333;
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+  animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-image {
-  text-align: center;
   margin-bottom: 20px;
 }
 
 .profile-image img {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #ffffff; /* White border around profile image */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 5px solid #795bfc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-image img:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .profile-details {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  text-align: left;
 }
 
 .profile-detail {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .profile-detail h4 {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
-  color: #333333;
+  color: #555;
 }
 
 .profile-detail span {
   font-weight: bold;
-  color: #007bff; /* Blue color for emphasis */
+  color: #795bfc;
 }
 
 .profile-button-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .edit-profile-button,
 .profile-button {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #795bfc, #5b46e0);
   color: #ffffff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .edit-profile-button:hover,
 .profile-button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #5b46e0, #795bfc);
+  transform: translateY(-3px);
 }
 
 .password-update {
   margin-top: 20px;
+  text-align: left;
 }
 
 .password-update h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #333333;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
 }
 
 .password-update input {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  margin-right: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.password-update input:focus {
+  border-color: #795bfc;
+  box-shadow: 0 0 8px rgba(121, 91, 252, 0.5);
 }
 
 .password-update .profile-button {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .error-message {
-  color: #dc3545; /* Red color for error messages */
+  color: #dc3545;
   font-size: 14px;
   margin-top: 10px;
 }
@@ -127,12 +172,11 @@
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .profile-card {
-      width: 100%;
-      box-shadow: none;
+    padding: 20px;
   }
 
   .cross-button {
-      top: 5px;
-      right: 5px;
+    top: 10px;
+    right: 10px;
   }
 }
