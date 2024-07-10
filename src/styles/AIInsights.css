@@ -1,4 +1,5 @@
 /* AIInsights.css */
+
 body {
   background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
   font-family: 'Poppins', sans-serif;
@@ -23,7 +24,6 @@ body {
 
 .ai-insights:hover {
   transform: translateY(-5px);
-  
 }
 
 .ai-insights h2 {
@@ -80,34 +80,43 @@ body {
   color: red;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .ai-insights {
-    padding: 25px;
+    padding: 20px;
+    max-width: 90%;
   }
 
   .ai-insights h2 {
     font-size: 22px;
+    text-align: center;
+  }
+
+  .ai-insights ul {
+    text-align: center; /* Center align list items */
   }
 
   .ai-insights li {
     font-size: 16px;
+    text-align: left; /* Reset text-align for list items */
   }
 }
 
 @media (max-width: 480px) {
   .ai-insights {
-    padding: 20px;
-    padding-left: 210px;
+    width: 60%;
+    justify-content: center;
   }
 
   .ai-insights h2 {
     font-size: 20px;
-    text-align: left;
+    text-align: center;
   }
 
   .ai-insights li {
     font-size: 14px;
-    display: block;
-    white-space: pre-line; /* Allows breaking lines within the text */
+    display: list-item;
+    padding-left: 0;
+    white-space: normal;
+    text-align: left; /* Reset text-align for list items */
   }
 }

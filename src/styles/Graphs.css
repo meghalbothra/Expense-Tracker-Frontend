@@ -1,32 +1,72 @@
 /* Graphs.css */
 
 .graphs-container {
-    height: 400px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden; /* Ensures content does not overflow */
+  height: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.graphs-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.graphs-canvas-wrapper {
+  width: 100%;
+  height: calc(100% - 70px);
+  position: relative;
+}
+
+.graphs-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .graphs-container {
+    height: 250px; /* Reduce container height */
+    padding: 10px;
   }
-  
+
   .graphs-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 18px; /* Reduce title font size */
   }
-  
+
   .graphs-canvas-wrapper {
-    width: 100%;
-    height: calc(100% - 70px); /* Adjusts to fit within the container, minus title height */
-    position: relative;
+    height: calc(100% - 40px); /* Adjust height to fit within the container, minus title height */
   }
-  
+
   .graphs-canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
+    width: 80%; /* Reduce canvas width */
+    height: 80%; /* Reduce canvas height */
   }
-  
+}
+
+@media screen and (max-width: 480px) {
+  .graphs-container {
+    height: 200px; /* Further reduce container height */
+    padding: 5px;
+  }
+
+  .graphs-title {
+    font-size: 16px; /* Further reduce title font size */
+  }
+
+  .graphs-canvas-wrapper {
+    height: calc(100% - 30px); /* Adjust height to fit within the container, minus title height */
+  }
+
+  .graphs-canvas {
+    width: 70%; /* Further reduce canvas width */
+    height: 70%; /* Further reduce canvas height */
+  }
+}

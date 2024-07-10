@@ -125,7 +125,7 @@ const ExpenseLimit = () => {
                 <p>Expense Limit: ${limit}</p>
             )}
             {limitCrossed && (
-                <p className="limit-crossed">Expense limit crossed! Total expenses have exceeded the set limit.</p>
+                <p className="limit-crossed">Expense limit crossed! <br />Total expenses have exceeded the set limit.</p>
             )}
             {!limitCrossed && isLimitSet && (
                 <p>Expense limit not crossed.</p>
