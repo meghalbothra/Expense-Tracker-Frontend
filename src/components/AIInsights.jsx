@@ -13,7 +13,7 @@ const AIInsights = () => {
       try {
         const token = Cookies.get('token');
 
-        const incomeResponse = await axios.get('http://localhost:8000/api/v1/income', {
+        const incomeResponse = await axios.get('http://localhost:8000/api/v1/auth/income', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -25,7 +25,7 @@ const AIInsights = () => {
           return transactionDate >= sixMonthsAgo;
         });
 
-        const expenseResponse = await axios.get('http://localhost:8000/api/v1/expenses', {
+        const expenseResponse = await axios.get('http://localhost:8000/api/v1/auth/expenses', {
           headers: {
             Authorization: `Bearer ${token}`
           }

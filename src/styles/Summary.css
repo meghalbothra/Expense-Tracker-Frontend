@@ -55,7 +55,7 @@ body {
   text-align: center;
   width: 100%;
   text-decoration: underline;
-  color: #333;
+  color: #000000;
   position: relative;
 }
 
@@ -100,13 +100,13 @@ body {
 .summary-section h3 {
   margin-bottom: 10px;
   font-size: 20px;
-  color: #555;
+  color: #000000;
 }
 
 .summary-amount {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #000000;
 }
 
 .positive-balance {
@@ -153,7 +153,7 @@ body {
   padding: 12px;
   border-radius: 11px;
   background-color: rgba(255, 255, 255, 0.9);
-  width: 90%;
+  width: 150px;
   box-sizing: border-box;
   text-align: center;
   margin: 15px auto;
@@ -304,29 +304,61 @@ body {
     height: auto;
     padding: 15px;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
   }
 
-  .filter,
-  .transaction-history {
-    height: 80px;
-    padding: 10px;
+  .pie-chart {
+    width: 50px;
+    height: 50px;
   }
+
+  .filter{
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 500px;
+    height: 400px;
+  }
+
+  .transaction-history,
+  .chart-container {
+    padding: 5px;
+    width: 500px;
+    height: 400px;
+  }
+
+  .transaction-item {
+    padding: 12px;
+    border-radius: 11px;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 230px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 15px auto;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transaction-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
 }
 
 @media (max-width: 600px) {
   .summary-container {
-    margin-top: 140px;
+    margin-top: 80px;
   }
 
   .summary-grid {
     grid-template-columns: 1fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
   }
 
   .summary-section {
     padding: 10px;
-    max-width: 500px;
+    width: 90%;
+    max-width: 300px;
   }
 
   .summary-heading {
@@ -350,7 +382,13 @@ body {
     padding: 8px 16px;
   }
 
-  .filter,
+  .filter{
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 300px;
+    height: 350px;
+  }
+
   .transaction-history,
   .chart-container {
     padding: 5px;
@@ -359,7 +397,7 @@ body {
   }
 
   .transaction-item {
-    padding: 8px;
+    width: 160px;
   }
 
   .filter-transaction-item {
@@ -385,11 +423,12 @@ body {
 
 @media (max-width: 400px) {
   .summary-container {
-    margin-top: 140px;
+    margin-top: 80px;
   }
 
   .summary-section {
     max-width: 300px;
+    padding: 20px;
   }
 
   .summary-heading {
@@ -424,7 +463,8 @@ body {
     font-size: 10px;
   }
 
-  .filter,
+
+
   .transaction-history,
   .chart-container {
     height: 350px;

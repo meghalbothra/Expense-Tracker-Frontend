@@ -61,12 +61,12 @@ const Graphs = () => {
       const token = Cookies.get('token'); // Retrieve token from cookie
       const userId = Cookies.get('userId'); // Retrieve userId from cookie
 
-      const incomeResponse = await axios.get(`http://localhost:8000/api/v1/income?userId=${userId}`, {
+      const incomeResponse = await axios.get(`http://localhost:8000/api/v1/auth/income?userId=${userId}`, {
         headers: {
           Authorization: `Bearer ${token}` // Include token in headers
         }
       });
-      const expenseResponse = await axios.get(`http://localhost:8000/api/v1/expenses?userId=${userId}`, {
+      const expenseResponse = await axios.get(`http://localhost:8000/api/v1/auth/expenses?userId=${userId}`, {
         headers: {
           Authorization: `Bearer ${token}` // Include token in headers
         }

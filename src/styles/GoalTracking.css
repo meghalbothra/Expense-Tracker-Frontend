@@ -1,91 +1,143 @@
-.goal-tracking-container {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #f9f9f9;
-  max-width: 600px;
-}
-
-.goal-tracking-container h2 {
-  margin-bottom: 20px;
-  text-decoration: underline;
-}
-
-.new-goal-form {
-  margin-bottom: 20px;
-}
-
-.goal-input {
-  margin: 5px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: calc(100% - 12px);
-}
-
-.add-goal-button, .add-allocation-button {
-  margin: 10px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-.goals-list {
-  margin-top: 20px;
-  padding: 20px;
-}
-
-.goal-item {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-}
-
-.progress-bar-container {
-  background-color: #ddd;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 18px; /* Reduced height for smaller progress bar */
-  margin: 10px auto; /* Center the progress bar */
-  width: 30%; /* Set a smaller width for the progress bar */
-}
-
-.progress-bar {
-  height: 100%;
-  text-align: center;
-  line-height: 15px; /* Adjusted line-height to match reduced height */
-  color: white;
-  font-weight: bold;
-  font-size: 12px;
-  transition: width 0.5s;
-  background-color: #4caf50;
-}
-
-.progress-bar-low {
-  color: black;
-  background-color: #f44336;
-}
-
-.goal-achieved {
-  font-size: 1.2em;
-  color: green;
-}
-
-.additional-allocation {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0; /* Adjust background color as needed */
+}
+
+.goal-tracking-container {
+padding: 30px;
+border: none;
+border-radius: 20px;
+width: 100%;
+max-width: 600px;
+margin: 0 auto;
+text-align: center;
+background: linear-gradient(135deg, #e2e2ff, #f8f8ff);
+box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.goal-tracking-container h2 {
+margin-bottom: 20px;
+text-decoration: underline;
+color: #4a4a4a;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+letter-spacing: 1.5px;
+}
+
+.new-goal-form {
+margin-bottom: 20px;
+}
+
+.goal-input {
+margin: 10px 5px;
+padding: 10px;
+border-radius: 10px;
+border: 1px solid #ccc;
+width: calc(100% - 22px);
+font-size: 16px;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.add-goal-button, .add-allocation-button {
+margin: 10px;
+padding: 10px 20px;
+border-radius: 10px;
+border: none;
+background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+color: white;
+cursor: pointer;
+transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.add-goal-button:hover, .add-allocation-button:hover {
+background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+transform: translateY(-3px);
+}
+
+.goals-list {
+margin-top: 20px;
+padding: 20px;
+}
+
+.goal-item {
+margin-bottom: 20px;
+padding: 20px;
+border: none;
+border-radius: 10px;
+background-color: #fff;
+box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goal-item:hover {
+transform: translateY(-5px);
+box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar-container {
+background-color: #ddd;
+border-radius: 20px;
+overflow: hidden;
+height: 20px;
+margin: 10px auto;
+width: 80%;
+box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+height: 100%;
+text-align: center;
+line-height: 20px;
+color: white;
+font-weight: bold;
+font-size: 12px;
+transition: width 0.5s;
+background-color: #4caf50;
+border-radius: 20px 0px 0px 20px;
+}
+
+.progress-bar-low {
+color: black;
+background-color: #f44336;
+}
+
+.goal-achieved {
+font-size: 1.2em;
+color: #4caf50;
+margin-top: 10px;
+}
+
+.additional-allocation {
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .additional-allocation .goal-input {
-  width: 60%;
-  margin-right: 10px;
+width: 60%;
+margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+.goal-tracking-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.goal-input {
+  width: calc(100% - 22px);
+  margin: 10px 0;
+}
+
+.add-goal-button, .add-allocation-button {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.progress-bar-container {
+  width: 100%;
+}
 }

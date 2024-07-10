@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/Dashboard';
@@ -19,55 +19,36 @@ function App() {
   const [token, setToken] = useState(null);
   const [fcmToken, setFcmToken] = useState(null);
 
+  // Checking if token exists
   useEffect(() => {
     const tokenCookie = document.cookie
-      .split(';')
-      .find((cookie) => cookie.trim().startsWith('token='));
-
+      .split(";")
+      .find((cookie) => cookie.trim().startsWith("token="));
     if (tokenCookie) {
-      const tokenValue = tokenCookie.split('=')[1];
-      setToken(tokenValue);
-      setIsLoggedIn(true);
-
-      const decodedToken = jwtDecode(tokenValue);
-      console.log('Decoded Token:', decodedToken);
-
-      // FCM Token generation
-      generateToken().then((FCMtoken) => {
-        setFcmToken(FCMtoken);
-        // Update FCM token
-        if (isLoggedIn) {
-          updateFcmToken(decodedToken, FCMtoken);
-        }
-      });
+      setIsLoggedIn(true); // Set isLoggedIn to true if token exists
+      const tokenValue = tokenCookie.split("=")[1];
+      setToken(tokenValue); // Extract token value from cookie
+      try {
+        const decodedToken = jwtDecode(tokenValue);
+        console.log("decodedToken", decodedToken);
+      } catch (error) {
+        console.error("Error decoding token:", error);
+      }
     }
-  }, [isLoggedIn]);
+  }, []);
 
-  // Function to update FCM token on the server
-  const updateFcmToken = async (decodedToken, fcmToken) => {
-    const userId = decodedToken.userId || decodedToken.registrationId;
-    const role = decodedToken.role;
-    try {
-      const response = await axios.put("http://localhost:8000/api/v1/update-fcm-token", {
-        userId,
-        fcmToken,
-        role,
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error updating FCM token:", error.message);
-    }
-  };
-
-  const handleLogin = (tokenValue) => {
-    setToken(tokenValue);
-    setIsLoggedIn(true);
-    // Navigate to dashboard after login
-    return <Navigate to="/dashboard" />;
-  };
-
+  // FCM Token generation
   useEffect(() => {
-    // Initialize Firebase Messaging
+    generateToken().then((FCMtoken) => {
+      setFcmToken(FCMtoken);
+      // Update FCM token
+      if (isLoggedIn) {
+        const decodedToken = jwtDecode(token);
+        updateFcmToken(decodedToken, FCMtoken);
+      }
+    });
+
+    // store the token in variable
     const messaging = getMessaging();
     onMessage(messaging, (payload) => {
       console.log(payload);
@@ -83,26 +64,36 @@ function App() {
         transition: Bounce,
       });
     });
-  }, []);
+  }, [isLoggedIn, token]);
 
   console.log("logged in: ", isLoggedIn);
   console.log("FCM TOKEN = ", fcmToken);
 
+  const updateFcmToken = async (decodedToken, FCMtoken) => {
+    const userId = decodedToken.userId || decodedToken.registrationId;
+
+    try {
+      const response = await axios.put("http://localhost:8000/api/v1/auth/update-fcm-token", {
+        userId,
+        newFcmToken: FCMtoken,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error updating FCM token:", error.message);
+    }
+  };
+
+  const handleLogin = (tokenValue, navigate) => {
+    setToken(tokenValue);
+    setIsLoggedIn(true);
+    // Navigate to dashboard after login
+    navigate("/dashboard");
+  };
+
   return (
     <>
       <Router>
-        <Routes>
-          <Route path="/login" element={<LoginPage onLogin={handleLogin} fcmToken={fcmToken} />} />
-          <Route path="/signup" element={<SignupPage onSignup={handleLogin} fcmToken={fcmToken} />} />
-          <Route path="/" element={<Navigate to="/signup" />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/income" element={<IncomePage />} />
-          <Route path="/expenses" element={<ExpensePage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/reminders" element={<ReminderPage />} />
-          {/* Add other routes here */}
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
+        <AppRoutes handleLogin={handleLogin} fcmToken={fcmToken} />
       </Router>
       <Toaster position="top-center" />
       <ToastContainer
@@ -119,6 +110,25 @@ function App() {
         transition={Bounce}
       />
     </>
+  );
+}
+
+function AppRoutes({ handleLogin, fcmToken }) {
+  const navigate = useNavigate();
+
+  return (
+    <Routes>
+      <Route path="/login" element={<LoginPage onLogin={(token) => handleLogin(token, navigate)} fcmToken={fcmToken} />} />
+      <Route path="/signup" element={<SignupPage onSignup={(token) => handleLogin(token, navigate)} fcmToken={fcmToken} />} />
+      <Route path="/" element={<Navigate to="/signup" />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/income" element={<IncomePage />} />
+      <Route path="/expenses" element={<ExpensePage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/reminders" element={<ReminderPage />} />
+      {/* Add other routes here */}
+      <Route path="*" element={<Navigate to="/login" />} />
+    </Routes>
   );
 }
 

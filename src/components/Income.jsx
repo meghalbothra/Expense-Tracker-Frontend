@@ -16,7 +16,7 @@ const Income = () => {
   const fetchIncomeData = async () => {
     try {
       const token = Cookies.get('token'); // Retrieve token from cookie
-      const response = await axios.get('http://localhost:8000/api/v1/income', {
+      const response = await axios.get('http://localhost:8000/api/v1/auth/income', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -36,7 +36,7 @@ const Income = () => {
     if (newIncome.title !== '' && newIncome.amount !== '') {
       try {
         const token = Cookies.get('token'); // Retrieve token from cookie
-        const response = await axios.post('http://localhost:8000/api/v1/income', newIncome, {
+        const response = await axios.post('http://localhost:8000/api/v1/auth/income', newIncome, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -78,7 +78,7 @@ const Income = () => {
   const handleDeleteIncome = async (id) => {
     try {
       const token = Cookies.get('token'); // Retrieve token from cookie
-      await axios.delete(`http://localhost:8000/api/v1/income/${id}`, {
+      await axios.delete(`http://localhost:8000/api/v1/auth/income/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

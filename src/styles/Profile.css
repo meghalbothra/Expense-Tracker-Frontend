@@ -1,6 +1,6 @@
 /* Profile.css */
 body {
-  background: linear-gradient(135deg, #e0dafb 0%, #ae9cff 100%);
+  background: linear-gradient(135deg, #e0f7fa 0%, #e1bee7 100%);
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -172,7 +172,14 @@ body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .profile-card {
-    padding: 20px;
+    width: 320px;
+    padding: auto;
+  }
+
+  .password-update input {
+    width: 280px;
+    justify-content: center;
+    padding: auto;
   }
 
   .cross-button {

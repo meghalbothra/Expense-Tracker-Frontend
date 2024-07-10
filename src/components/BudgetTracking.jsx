@@ -17,7 +17,7 @@ const BudgetTracker = () => {
       const token = Cookies.get('token');
       const userId = Cookies.get('userId');
 
-      const response = await axios.get(`http://localhost:8000/api/v1/expenses?userId=${userId}`, {
+      const response = await axios.get(`http://localhost:8000/api/v1/auth/expenses?userId=${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

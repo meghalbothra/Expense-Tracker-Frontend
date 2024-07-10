@@ -29,10 +29,13 @@ body {
 }
 
 .reminder-heading {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 20px;
+    color: #4a4a4a;
     text-align: center;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
 .reminder-list {
@@ -53,6 +56,7 @@ body {
 
 .reminder-item:hover {
     background-color: #d0d0ff;
+    transform: translateY(-5px);
 }
 
 .reminder-content {
@@ -70,19 +74,19 @@ body {
 
 .reminder-title {
     font-size: 18px;
-    color: #333;
+    color: #000000;
     margin: 0;
     flex: 1;
 }
 
 .reminder-title.completed {
     text-decoration: line-through;
-    color: #888;
+    color: #000000;
 }
 
 .reminder-date {
     font-size: 14px;
-    color: #888;
+    color: #000000;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -184,7 +188,7 @@ body {
 
     .reminder-actions {
         display: flex;
-        justify-content: center;
+        justify-content: left;
         width: 100%; 
         margin-top: 8px;
     }

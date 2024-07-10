@@ -21,7 +21,7 @@ const ExpenseLimit = () => {
         try {
             const userId = Cookies.get('userId');
             const token = Cookies.get('token');
-            const response = await axios.get(`http://localhost:8000/api/v1/expense-limit?userId=${userId}`, {
+            const response = await axios.get(`http://localhost:8000/api/v1/auth/expense-limit?userId=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -41,7 +41,7 @@ const ExpenseLimit = () => {
         try {
             const userId = Cookies.get('userId');
             const token = Cookies.get('token');
-            const response = await axios.get(`http://localhost:8000/api/v1/expenses?userId=${userId}`, {
+            const response = await axios.get(`http://localhost:8000/api/v1/auth/expenses?userId=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -63,7 +63,7 @@ const ExpenseLimit = () => {
         if (!isNaN(newLimitValue)) {
             try {
                 const token = Cookies.get('token');
-                await axios.put('http://localhost:8000/api/v1/expense-limit', { expenseLimit: newLimitValue }, {
+                await axios.put('http://localhost:8000/api/v1/auth/expense-limit', { expenseLimit: newLimitValue }, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

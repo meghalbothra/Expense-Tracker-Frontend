@@ -17,7 +17,7 @@ const GoalTracking = () => {
 
   const fetchGoals = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/v1/goals', {
+      const response = await axios.get('http://localhost:8000/api/v1/auth/goals', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +51,7 @@ const GoalTracking = () => {
       const newGoal = { name: newGoalName, amount, allocation };
 
       try {
-        const response = await axios.post('http://localhost:8000/api/v1/goals', newGoal, {
+        const response = await axios.post('http://localhost:8000/api/v1/auth/goals', newGoal, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -116,7 +116,7 @@ const GoalTracking = () => {
     }
 
     try {
-      const response = await axios.put(`http://localhost:8000/api/v1/goals/${goal.id}`, { allocation: amountToAdd }, {
+      const response = await axios.put(`http://localhost:8000/api/v1/auth/goals/${goal.id}`, { allocation: amountToAdd }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -164,7 +164,7 @@ const GoalTracking = () => {
   const handleDeleteGoal = async (id, name) => {
     if (window.confirm(`Are you sure you want to delete the goal "${name}"? This action cannot be undone.`)) {
       try {
-        const response = await axios.delete(`http://localhost:8000/api/v1/goals/${id}`, {
+        const response = await axios.delete(`http://localhost:8000/api/v1/auth/goals/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

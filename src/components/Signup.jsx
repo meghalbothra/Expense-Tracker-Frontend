@@ -48,7 +48,7 @@ const Signup = () => {
     const expires = `expires=${expirationDate.toUTCString()}`;
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/register', { Name, email, password, fcmToken });
+      const response = await axios.post('http://localhost:8000/api/v1/auth/register', { Name, email, password, fcmToken });
 
       // Store the token in a cookie
       document.cookie = `token=${response.data.token}; ${expires}; path=/`;

@@ -1,83 +1,80 @@
 /* Navbar.css */
 .navbar {
-  position: fixed; /* Position navbar fixed to stay at the top */
-  top: 0; /* Align navbar to the top */
-  left: 0; /* Align navbar to the left */
-  width: 100%; /* Set navbar width to 100% */
-  background-color: #ffffff;
-  color: #947cff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #e2e2ff, #f8f8ff);
+  color: #00796b;
   padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  z-index: 1000; /* Ensure navbar is above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensure items are spaced between */
-  padding: 0 20px; /* Add padding to center content */
-  margin-left: 15px;
-  position: relative;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .logo-container {
-  display: flex; /* Ensure logo-container is a flex container */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  align-items: center;
   margin-right: 20px;
-  margin-left: 15px;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background-position: center;
   background-size: cover;
-  margin: 0; /* Reset margin */
-  padding: 0; /* Remove padding */
+  margin: 0;
+  padding: 0;
 }
 
 .logo-text {
   margin: 0;
-  font-size: 30px;
-  font-weight: bold; /* Make logo bold */
+  font-size: 28px;
+  font-weight: bold;
+  color: #00796b;
   margin-left: 15px;
   display: inline;
 }
 
 .menu-icon {
-  display: none; /* Hide menu icon by default */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 24px;
-  color: #c0adfd;
+  color: #00796b;
 }
 
 .nav-menu {
   list-style-type: none;
   display: flex;
-  justify-content: flex-end; /* Align items to the end */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  align-items: center; /* Align items vertically */
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 .nav-item {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .nav-link {
-  color: #2d00f4;
+  color: #00796b;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 18px; /* Increase font size */
+  font-size: 18px;
   display: flex;
   align-items: center;
-  font-size: 20px;
 }
 
 .nav-link:hover {
-  color: #3104fc;
+  color: #004d40;
   text-decoration: underline;
 }
 
@@ -85,78 +82,54 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #4b24fb; /* Adjust button text color */
-  font-size: 18px; /* Adjust button font size */
+  color: #00796b;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  transition: color 0.3s ease; /* Add transition for hover effect */
+  transition: color 0.3s ease;
 }
 
 .logout-button:hover {
-  color: white; /* Change color on hover */
-  text-decoration: none; /* Add underline on hover */
+  color: #004d40;
+  text-decoration: none;
 }
 
 /* Media query for responsive design */
 @media screen and (max-width: 1000px) {
   .menu-icon {
-    display: block; /* Display menu icon for smaller screens */
+    display: block;
   }
 
   .nav-menu {
-    display: none; /* Hide menu items by default */
+    display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px; /* Adjust as needed */
+    top: 60px;
     left: 0;
     width: 100%;
     background-color: #ffffff;
-    z-index: 1; /* Ensure menu is above other content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .nav-menu.active {
-    display: flex; /* Display menu items when active */
+    display: flex;
   }
 
   .nav-item {
-    margin: 0; /* Reset margin for smaller screens */
+    margin: 0;
     padding: 10px 20px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #e0f7fa;
   }
 
   .nav-link {
-    font-size: 16px; /* Reduce font size for smaller screens */
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 0 15px; /* Reduce padding on smaller screens */
-  }
-
-  .logo {
-    width: 50px;
-    height: 50px;
-  }
-
-  .logo-text {
-    font-size: 24px; /* Reduce logo text size */
-    margin-left: 10px;
-  }
-
-  .nav-link {
-    font-size: 16px; /* Further reduce font size for nav links */
-  }
-
-  .logout-button {
-    font-size: 16px; /* Further reduce font size for logout button */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .container {
-    padding: 0 10px; /* Further reduce padding on smallest screens */
+    padding: 0 15px;
   }
 
   .logo {
@@ -165,15 +138,39 @@
   }
 
   .logo-text {
-    font-size: 20px; /* Further reduce logo text size */
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .logout-button {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 20px;
     margin-left: 8px;
   }
 
   .nav-link {
-    font-size: 14px; /* Further reduce font size for nav links */
+    font-size: 14px;
   }
 
   .logout-button {
-    font-size: 14px; /* Further reduce font size for logout button */
+    font-size: 14px;
   }
 }

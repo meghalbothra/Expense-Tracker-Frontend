@@ -21,7 +21,7 @@ const Reminders = () => {
         setLoading(true);
         try {
             const token = Cookies.get('token'); // Retrieve token from cookie
-            const response = await axios.get('http://localhost:8000/api/v1/reminders', {
+            const response = await axios.get('http://localhost:8000/api/v1/auth/reminders', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -46,7 +46,7 @@ const Reminders = () => {
         if (newReminder.title !== '' && newReminder.date !== '') {
             try {
                 const token = Cookies.get('token'); // Retrieve token from cookie
-                const response = await axios.post('http://localhost:8000/api/v1/reminders', newReminder, {
+                const response = await axios.post('http://localhost:8000/api/v1/auth/reminders', newReminder, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -89,7 +89,7 @@ const Reminders = () => {
     const handleDeleteReminder = async (id) => {
         try {
             const token = Cookies.get('token'); // Retrieve token from cookie
-            await axios.delete(`http://localhost:8000/api/v1/reminders/${id}`, {
+            await axios.delete(`http://localhost:8000/api/v1/auth/reminders/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -131,7 +131,7 @@ const Reminders = () => {
             const reminder = reminderList.find((reminder) => reminder.id === id);
             const updatedReminder = { ...reminder, completed: !reminder.completed };
 
-            const response = await axios.put(`http://localhost:8000/api/v1/reminders/${id}/toggle`, updatedReminder, {
+            const response = await axios.put(`http://localhost:8000/api/v1/auth/reminders/${id}/toggle`, updatedReminder, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

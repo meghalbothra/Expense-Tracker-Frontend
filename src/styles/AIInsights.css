@@ -31,7 +31,6 @@ body {
   color: #333333;
   margin-bottom: 20px;
   text-align: center;
-  position: relative;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -98,10 +97,12 @@ body {
 @media (max-width: 480px) {
   .ai-insights {
     padding: 20px;
+    padding-left: 210px;
   }
 
   .ai-insights h2 {
     font-size: 20px;
+    text-align: left;
   }
 
   .ai-insights li {
