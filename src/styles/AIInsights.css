@@ -28,7 +28,7 @@ body {
 
 .ai-insights h2 {
   font-size: 26px;
-  color: #333333;
+  color: #000000;
   margin-bottom: 20px;
   text-align: center;
   font-weight: 600;
@@ -44,7 +44,7 @@ body {
 
 .ai-insights li {
   font-size: 18px;
-  color: #555555;
+  color: #000000;
   margin-bottom: 12px;
   line-height: 1.6;
   position: relative;
