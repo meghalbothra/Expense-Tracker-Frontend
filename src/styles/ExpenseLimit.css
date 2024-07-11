@@ -37,18 +37,19 @@
   }
   
   .expenselimit-button {
-    background-color: #007bff;
-    color: #ffffff;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
     border: none;
-    border-radius: 5px;
-    padding: 12px 24px;
-    font-size: 16px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
   }
   
-  .expense-limit button:hover {
-    background-color: #0056b3;
+  .expenselimit-button:hover {
+    background: linear-gradient(135deg, #0151fe, #018cfe);
+    transform: translateY(-3px);
   }
   
   .expense-limit p {

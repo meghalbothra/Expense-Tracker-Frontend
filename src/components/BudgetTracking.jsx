@@ -10,7 +10,7 @@ const BudgetTracker = () => {
   const [error, setError] = useState(null);
   const location = useLocation();
 
-  const allCategories = [ 'Education', 'Utilities', 'Entertainment', 'Health', 'Miscellaneous','Housing', 'Food', 'Transportation'];
+  const allCategories = ['Education', 'Utilities', 'Entertainment', 'Health', 'Miscellaneous', 'Housing', 'Food', 'Transportation'];
 
   const fetchData = async () => {
     try {
@@ -64,9 +64,9 @@ const BudgetTracker = () => {
     <div className="budget-tracker-container">
       <h2>Expense Categories</h2>
       <div className="bar-chart-container">
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart data={data}>
-            <XAxis dataKey="name" />
+        <ResponsiveContainer width="100%" height={450}>
+          <BarChart data={data} margin={{ bottom: 120 }}>
+            <XAxis dataKey="name" angle={-90} textAnchor="end" interval={0} />
             <YAxis />
             <Tooltip />
             <Bar dataKey="value" fill="#8884d8" />

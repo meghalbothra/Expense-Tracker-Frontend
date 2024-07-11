@@ -89,7 +89,7 @@ body {
   }
   
   .auth-button:hover {
-    background-color: #2e00fa;
+    background-color: #442fa0;
   }
 
   .logo{
@@ -104,7 +104,7 @@ body {
   }
   
   p a:hover {
-    color: #2f00ff;
+    color: #442fa0;
   }
   
   .error-message {

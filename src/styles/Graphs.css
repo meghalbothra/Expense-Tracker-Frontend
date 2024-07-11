@@ -31,9 +31,16 @@
 }
 
 /* Media query for smaller screens */
+@media screen and (max-width: 1100px) {
+  .graphs-container {
+    width: 550px; /* Reduce container height */
+    padding: 10px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .graphs-container {
-    height: 250px; /* Reduce container height */
+    width: 450px; /* Reduce container height */
     padding: 10px;
   }
 
@@ -53,7 +60,7 @@
 
 @media screen and (max-width: 480px) {
   .graphs-container {
-    height: 200px; /* Further reduce container height */
+    width: 300px; /* Further reduce container height */
     padding: 5px;
   }
 

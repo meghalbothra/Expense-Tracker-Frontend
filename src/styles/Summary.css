@@ -223,16 +223,14 @@ body {
 }
 
 .filter-button {
-  width: auto;
-  padding: 12px 24px;
-  margin-top: 10px;
-  align-self: center;
-  cursor: pointer;
-  color: #ffffff;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #018cfe, #0151fe);
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
   border: none;
-  transition: background 0.4s ease, transform 0.4s ease;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .filter-button:hover {
@@ -347,7 +345,7 @@ body {
 
 @media (max-width: 600px) {
   .summary-container {
-    margin-top: 80px;
+    margin-top: 140px;
   }
 
   .summary-grid {
@@ -423,7 +421,7 @@ body {
 
 @media (max-width: 400px) {
   .summary-container {
-    margin-top: 80px;
+    margin-top: 140px;
   }
 
   .summary-section {

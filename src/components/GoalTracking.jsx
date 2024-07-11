@@ -44,7 +44,17 @@ const GoalTracking = () => {
 
     if (newGoalName && amount > 0 && allocation >= 0) {
       if (allocation > amount) {
-        alert("Initial allocation cannot exceed the goal amount.");
+        toast.error("Initial allocation cannot exceed the goal amount.", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide
+        });
         return;
       }
 
@@ -89,7 +99,17 @@ const GoalTracking = () => {
         });
       }
     } else {
-      alert("Please fill in all fields with valid amounts.");
+      toast.error("Please fill in all fields with valid amounts.", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
+      });
     }
   };
 
@@ -102,7 +122,17 @@ const GoalTracking = () => {
     const amountToAdd = parseFloat(additionalAllocation[index]);
     
     if (isNaN(amountToAdd) || amountToAdd <= 0) {
-      alert("Please enter a valid amount to add.");
+      toast.error("Please enter a valid amount to add.", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
+      });
       return;
     }
     
@@ -111,7 +141,17 @@ const GoalTracking = () => {
     const newAllocation = currentAllocation + amountToAdd;
     
     if (newAllocation > goal.amount) {
-      alert("New allocation cannot exceed the goal amount.");
+      toast.error("New allocation cannot exceed the goal amount.", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
+      });
       return;
     }
 
@@ -142,7 +182,17 @@ const GoalTracking = () => {
         });
       } else {
         console.error('Unexpected response:', response);
-        alert('Failed to update goal allocation. Please try again later.');
+        toast.error('Failed to update goal allocation. Please try again later.', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide
+        });
       }
     } catch (error) {
       console.error('Error updating goal allocation:', error);
@@ -162,38 +212,32 @@ const GoalTracking = () => {
   };
 
   const handleDeleteGoal = async (id, name) => {
-    if (window.confirm(`Are you sure you want to delete the goal "${name}"? This action cannot be undone.`)) {
-      try {
-        const response = await axios.delete(`http://localhost:8000/api/v1/auth/goals/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+    try {
+      const response = await axios.delete(`http://localhost:8000/api/v1/auth/goals/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.status === 200) {
+        const updatedGoals = goals.filter(goal => goal.id !== id);
+        setGoals(updatedGoals);
+
+        // Show success toast notification
+        toast.success(`Goal "${name}" deleted successfully!`, {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide
         });
-
-        if (response.status === 200) {
-          const updatedGoals = goals.filter(goal => goal.id !== id);
-          setGoals(updatedGoals);
-
-          // Show success toast notification
-          toast.success(`Goal "${name}" deleted successfully!`, {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            transition: Slide
-          });
-        } else {
-          console.error('Unexpected response:', response);
-          alert('Failed to delete goal. Please try again later.');
-        }
-      } catch (error) {
-        console.error('Error deleting goal:', error);
-        // Show error toast notification
-        toast.error('Error deleting goal. Please try again later.', {
+      } else {
+        console.error('Unexpected response:', response);
+        toast.error('Failed to delete goal. Please try again later.', {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -205,6 +249,20 @@ const GoalTracking = () => {
           transition: Slide
         });
       }
+    } catch (error) {
+      console.error('Error deleting goal:', error);
+      // Show error toast notification
+      toast.error('Error deleting goal. Please try again later.', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
+      });
     }
   };
 
@@ -265,7 +323,7 @@ const GoalTracking = () => {
                 <button onClick={() => handleAddAllocation(index)} className="add-allocation-button">Add</button>
               </div>
             )}
-            <button onClick={() => handleDeleteGoal(goal.id, goal.name)} className="expenselimit-button">Delete</button>
+            <button onClick={() => handleDeleteGoal(goal.id, goal.name)} className="delete-goal-button">Delete</button>
           </div>
         ))}
       </div>
