@@ -5,16 +5,19 @@ import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import Filter from '../components/Filter';
 import Cookies from 'js-cookie'; // Import js-cookie library or relevant token management
+import { useLocation } from 'react-router-dom'; // Assuming you're using React Router
 
 const Summary = () => {
     const [incomeTransactions, setIncomeTransactions] = useState([]);
     const [expenseTransactions, setExpenseTransactions] = useState([]);
     const [filteredTransactions, setFilteredTransactions] = useState([]);
-    const userId = Cookies.get('userId'); // Retrieve userId from cookie or context (example)
+    const [loading, setLoading] = useState(true);
+    const [balance, setBalance] = useState(0);
+    const location = useLocation(); // Get the current location
 
     useEffect(() => {
         fetchTransactions();
-    }, [userId]); // Fetch transactions whenever userId changes
+    }, [location.key]); // Fetch transactions whenever location.key changes
 
     useEffect(() => {
         // Combine income and expense transactions into filteredTransactions
@@ -24,21 +27,32 @@ const Summary = () => {
     const fetchTransactions = async () => {
         try {
             const token = Cookies.get('token'); // Retrieve token from cookie or context
-            const incomeResponse = await axios.get(`http://localhost:8000/api/v1/auth/income?userId=${userId}`, {
+
+            const incomeResponse = await axios.get(`http://localhost:8000/api/v1/auth/income`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            const expenseResponse = await axios.get(`http://localhost:8000/api/v1/auth/expenses?userId=${userId}`, {
+            const expenseResponse = await axios.get(`http://localhost:8000/api/v1/auth/expenses`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
+
             // Assuming income transactions come directly from incomeResponse and expenses from expenseResponse
             setIncomeTransactions(incomeResponse.data);
             setExpenseTransactions(expenseResponse.data);
+
+            // Calculate balance
+            const totalIncome = calculateTotal(incomeResponse.data);
+            const totalExpenses = calculateTotal(expenseResponse.data);
+            const balance = totalIncome - totalExpenses;
+            setBalance(balance);
+
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching transactions:', error);
+            setLoading(false);
         }
     };
 
@@ -46,14 +60,10 @@ const Summary = () => {
         return transactions.reduce((acc, transaction) => acc + parseFloat(transaction.amount), 0);
     };
 
-    const totalIncome = calculateTotal(incomeTransactions);
-    const totalExpenses = calculateTotal(expenseTransactions);
-    const balance = totalIncome - totalExpenses;
-
     const pieData = {
         labels: ['Income', 'Expenses'],
         datasets: [{
-            data: [totalIncome, totalExpenses],
+            data: [calculateTotal(incomeTransactions), calculateTotal(expenseTransactions)],
             backgroundColor: ['#36A2EB', '#FF6384'],
             hoverBackgroundColor: ['#36A2EB', '#FF6384']
         }]
@@ -64,17 +74,21 @@ const Summary = () => {
         setFilteredTransactions(filteredTransactions);
     };
 
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
     return (
         <div className="summary-container">
             <h2 className="summary-heading">Financial Summary</h2>
             <div className="summary-grid">
                 <div className="summary-section">
                     <h3>Total Income</h3>
-                    <p className="summary-amount">${totalIncome}</p>
+                    <p className="summary-amount">${calculateTotal(incomeTransactions)}</p>
                 </div>
                 <div className="summary-section">
                     <h3>Total Expenses</h3>
-                    <p className="summary-amount">${totalExpenses}</p>
+                    <p className="summary-amount">${calculateTotal(expenseTransactions)}</p>
                 </div>
                 <div className="summary-section">
                     <h3>Balance</h3>

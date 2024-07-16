@@ -72,7 +72,7 @@ const Dashboard = () => {
           <GoalTracking />
         </div>
         <div>
-
+          <Footer />
         </div>
       </div>
     </div>

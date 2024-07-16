@@ -15,6 +15,13 @@ const Graphs = () => {
 
   useEffect(() => {
     fetchData();
+
+    // Fetch income data every 5 minutes (adjust as needed)
+    const interval = setInterval(() => {
+      fetchData();
+    },30 * 1000); 
+
+    return () => clearInterval(interval); // Clean up interval on component unmount
   }, []);
 
   useEffect(() => {

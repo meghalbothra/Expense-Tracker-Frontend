@@ -57,7 +57,7 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
-  background-color: rgb(255, 4, 4);
+  background-color: rgba(255, 4, 4, 0.868);
   color: white;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
@@ -69,7 +69,7 @@ body {
 }
 
 .delete-goal-button:hover {
-  background-color: rgba(201, 0, 0, 0.925);
+  background-color: rgba(180, 0, 0, 0.925);
   transform: translateY(-3px);
 }
 

@@ -50,6 +50,12 @@ const BudgetTracker = () => {
 
   useEffect(() => {
     fetchData(); // Fetch data when the component mounts or when the location changes
+
+    const interval = setInterval(() => {
+      fetchData(); // Automatically refresh data at specified intervals
+    }, 30000); // Refresh every 30 seconds
+
+    return () => clearInterval(interval); // Clear the interval on component unmount
   }, [location]);
 
   const refreshData = () => {

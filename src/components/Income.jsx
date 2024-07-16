@@ -47,29 +47,29 @@ const Income = () => {
 
         // Show success toast notification
         toast.success('Income added successfully!', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Slide
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide
         });
       } catch (error) {
         console.error('Error adding income:', error);
         // Show error toast notification
         toast.error('Error adding income. Please try again.', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Slide
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide
         });
       }
     }
@@ -117,6 +117,11 @@ const Income = () => {
     const totalIncome = incomeList.reduce((acc, income) => acc + parseFloat(income.amount), 0);
     return totalIncome.toFixed(2); // Ensure two decimal places for currency display
   };
+
+  // useEffect to fetch income data whenever incomeList changes (i.e., after add or delete)
+  useEffect(() => {
+    fetchIncomeData();
+  }, [incomeList]);
 
   return (
     <div className="income-container">
