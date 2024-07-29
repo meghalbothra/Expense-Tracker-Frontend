@@ -73,7 +73,7 @@ function App() {
     const userId = decodedToken.userId || decodedToken.registrationId;
 
     try {
-      const response = await axios.put("http://localhost:8000/api/v1/auth/update-fcm-token", {
+      const response = await axios.put("https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/update-fcm-token", {
         userId,
         newFcmToken: FCMtoken,
       });

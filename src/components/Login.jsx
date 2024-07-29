@@ -33,7 +33,7 @@ const Login = () => {
     console.log({ email, password, fcmToken });
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/auth/login", // Replace with actual backend URL
+        "https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/login", // Replace with actual backend URL
         { email, password, fcmToken },
         {
           headers: {

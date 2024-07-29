@@ -18,7 +18,7 @@ const Expenses = ({ onExpenseChange }) => {
   const fetchExpensesData = async () => {
     try {
       const token = Cookies.get('token');
-      const response = await axios.get('http://localhost:8000/api/v1/auth/expenses', {
+      const response = await axios.get('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/expenses', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -42,7 +42,7 @@ const Expenses = ({ onExpenseChange }) => {
 
     try {
       const token = Cookies.get('token');
-      const response = await axios.post('http://localhost:8000/api/v1/auth/expenses', newExpense, {
+      const response = await axios.post('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/expenses', newExpense, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -88,7 +88,7 @@ const Expenses = ({ onExpenseChange }) => {
   const handleDeleteExpense = async (id) => {
     try {
       const token = Cookies.get('token');
-      await axios.delete(`http://localhost:8000/api/v1/auth/expenses/${id}`, {
+      await axios.delete(`https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/expenses/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

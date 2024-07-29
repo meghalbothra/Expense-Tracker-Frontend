@@ -17,7 +17,7 @@ const GoalTracking = () => {
 
   const fetchGoals = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/v1/auth/goals', {
+      const response = await axios.get('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/goals', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -61,7 +61,7 @@ const GoalTracking = () => {
       const newGoal = { name: newGoalName, amount, allocation };
 
       try {
-        const response = await axios.post('http://localhost:8000/api/v1/auth/goals', newGoal, {
+        const response = await axios.post('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/goals', newGoal, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -156,7 +156,7 @@ const GoalTracking = () => {
     }
 
     try {
-      const response = await axios.put(`http://localhost:8000/api/v1/auth/goals/${goal.id}`, { allocation: amountToAdd }, {
+      const response = await axios.put(`https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/goals/${goal.id}`, { allocation: amountToAdd }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -213,7 +213,7 @@ const GoalTracking = () => {
 
   const handleDeleteGoal = async (id, name) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/api/v1/auth/goals/${id}`, {
+      const response = await axios.delete(`https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/goals/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

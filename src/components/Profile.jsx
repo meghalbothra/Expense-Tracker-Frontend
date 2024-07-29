@@ -25,7 +25,7 @@ const Profile = () => {
     const fetchUserProfile = async () => {
         try {
             const token = Cookies.get('token'); // Retrieve token from cookies
-            const response = await axios.get('http://localhost:8000/api/v1/auth/profile', {
+            const response = await axios.get('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/profile', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -73,7 +73,7 @@ const Profile = () => {
     const handleSaveProfile = async () => {
         try {
             const token = Cookies.get('token'); // Retrieve token from cookies
-            await axios.put('http://localhost:8000/api/v1/auth/profile', {
+            await axios.put('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/profile', {
                 name,
             }, {
                 headers: {
@@ -115,7 +115,7 @@ const Profile = () => {
     const handlePasswordUpdate = async () => {
         try {
             const token = Cookies.get('token'); // Retrieve token from cookies
-            await axios.put('http://localhost:8000/api/v1/auth/profile/update-password', {
+            await axios.put('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/profile/update-password', {
                 currentPassword,
                 newPassword,
                 confirmNewPassword,

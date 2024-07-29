@@ -16,7 +16,7 @@ const Income = () => {
   const fetchIncomeData = async () => {
     try {
       const token = Cookies.get('token'); // Retrieve token from cookie
-      const response = await axios.get('http://localhost:8000/api/v1/auth/income', {
+      const response = await axios.get('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/income', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -36,7 +36,7 @@ const Income = () => {
     if (newIncome.title !== '' && newIncome.amount !== '') {
       try {
         const token = Cookies.get('token'); // Retrieve token from cookie
-        const response = await axios.post('http://localhost:8000/api/v1/auth/income', newIncome, {
+        const response = await axios.post('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/income', newIncome, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -47,29 +47,29 @@ const Income = () => {
 
         // Show success toast notification
         toast.success('Income added successfully!', {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Slide
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
         });
       } catch (error) {
         console.error('Error adding income:', error);
         // Show error toast notification
         toast.error('Error adding income. Please try again.', {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Slide
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide
         });
       }
     }
@@ -78,7 +78,7 @@ const Income = () => {
   const handleDeleteIncome = async (id) => {
     try {
       const token = Cookies.get('token'); // Retrieve token from cookie
-      await axios.delete(`http://localhost:8000/api/v1/auth/income/${id}`, {
+      await axios.delete(`https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/income/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -117,11 +117,6 @@ const Income = () => {
     const totalIncome = incomeList.reduce((acc, income) => acc + parseFloat(income.amount), 0);
     return totalIncome.toFixed(2); // Ensure two decimal places for currency display
   };
-
-  // useEffect to fetch income data whenever incomeList changes (i.e., after add or delete)
-  useEffect(() => {
-    fetchIncomeData();
-  }, [incomeList]);
 
   return (
     <div className="income-container">
