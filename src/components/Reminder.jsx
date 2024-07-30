@@ -43,7 +43,12 @@ const Reminders = () => {
 
     // Add a new reminder
     const handleAddReminder = async () => {
-        if (newReminder.title !== '' && newReminder.date !== '') {
+        const selectedDate = new Date(newReminder.date);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set hours to 0 for comparison
+
+        // Validate that the date is not in the past
+        if (newReminder.title !== '' && newReminder.date !== '' && selectedDate >= today) {
             try {
                 const token = Cookies.get('token'); // Retrieve token from cookie
                 const response = await axios.post('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/reminders', newReminder, {
@@ -82,6 +87,18 @@ const Reminders = () => {
                     transition: Slide
                 });
             }
+        } else if (selectedDate < today) {
+            toast.error('Cannot add reminder for a past date.', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Slide
+            });
         }
     };
 
@@ -214,6 +231,7 @@ const Reminders = () => {
                     placeholder="Enter date"
                     value={newReminder.date}
                     onChange={handleInputChange}
+                    min={new Date().toISOString().split("T")[0]} // Disable past dates in the input
                 />
                 <button className="reminder-add-button" onClick={handleAddReminder}>Add Reminder</button>
             </div>

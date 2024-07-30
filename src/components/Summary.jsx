@@ -5,7 +5,7 @@ import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import Filter from '../components/Filter';
 import Cookies from 'js-cookie'; // Import js-cookie library or relevant token management
-import { useLocation } from 'react-router-dom'; // Assuming you're using React Router
+import { useLocation } from 'react-router-dom'; 
 
 const Summary = () => {
     const [incomeTransactions, setIncomeTransactions] = useState([]);

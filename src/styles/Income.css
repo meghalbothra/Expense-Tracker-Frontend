@@ -3,8 +3,7 @@
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  width: 100%;
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto; /* Center the container */
   height: 790px;
   box-sizing: border-box;

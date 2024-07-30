@@ -53,7 +53,7 @@ const BudgetTracker = () => {
 
     const interval = setInterval(() => {
       fetchData(); // Automatically refresh data at specified intervals
-    }, 30000); // Refresh every 30 seconds
+    }, 10000); // Refresh every 10 seconds
 
     return () => clearInterval(interval); // Clear the interval on component unmount
   }, [location]);

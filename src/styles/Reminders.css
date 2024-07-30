@@ -128,7 +128,6 @@ body {
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
-    width: auto;
     flex: 1;
 }
 
@@ -208,15 +207,32 @@ body {
     .add-reminder-form {
         flex-direction: column;
         align-items: stretch;
+        margin-left: 0;
+        margin: 0 auto;
+        width: 100%;
+        justify-content: space-around;
     }
 
     .add-reminder-form input {
-        margin-right: 0;
-        margin-bottom: 10px;
-        width: 100%;
+        margin: auto;
+        margin-bottom: 5px; /* Add bottom margin between inputs */
+        width: 70%;
+        padding: 0;
     }
 
     .reminder-add-button {
-        width: 100%;
+        width: 30%;
+        margin: auto;
+    }
+
+    .reminder-actions{
+        justify-content: space-evenly;
+        margin-top: 10px;
     }
 }
+
+@media (max-width: 550px) {
+    .reminder-container {
+      width: 390px;
+    }
+  }

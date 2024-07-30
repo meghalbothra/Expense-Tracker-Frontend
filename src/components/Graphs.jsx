@@ -16,15 +16,15 @@ const Graphs = () => {
   useEffect(() => {
     fetchData();
 
-    // Fetch income data every 5 minutes (adjust as needed)
+    // Fetch income data every 10 seconds (adjust as needed)
     const interval = setInterval(() => {
       fetchData();
-    },30 * 1000); 
+    },10 * 1000); 
 
     return () => clearInterval(interval); // Clean up interval on component unmount
   }, []);
 
-  useEffect(() => {
+  useEffect(()=> {
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
       if (chartRef.current) {

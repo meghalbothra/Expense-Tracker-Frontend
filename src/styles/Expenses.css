@@ -150,7 +150,7 @@
   .expense-item {
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 10px; /* Reduce the margin for smaller screens */
+    margin-bottom: 20px; /* Reduce the margin for smaller screens */
     padding: 10px; /* Adjust padding for smaller screens */
   }
 
@@ -169,14 +169,25 @@
     flex-direction: column; /* Stack form inputs vertically on smaller screens */
     align-items: stretch; /* Ensure inputs take full width */
     margin: 0;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-around;
   }
 
-  .add-expense-form input,
-  .add-expense-form select,
-  .expense-add-button {
-    margin-right: 0; /* Remove right margin for better spacing */
+  .add-expense-form input{
+    margin: 5px auto; 
+    width: 70%;
+  }
+
+  .add-expense-form select {
+    margin:5px auto;
     margin-bottom: 10px; /* Add bottom margin between inputs */
-    width: 100%; /* Ensure inputs take full width */
+    width: 70%;
+  }
+
+  .expense-add-button{
+    width: 30%; /* Ensure button takes full width */
+    margin: auto;
   }
 
   .expenses-heading {
