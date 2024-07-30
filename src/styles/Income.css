@@ -95,6 +95,7 @@
 
 .add-income-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
@@ -167,16 +168,21 @@
   .add-income-form {
     flex-direction: column; /* Stack form inputs vertically on smaller screens */
     align-items: stretch; /* Ensure inputs take full width */
+    margin-left: 0;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-around;
   }
 
   .add-income-form input {
-    margin-right: 0; /* Remove right margin for better spacing */
+    margin: auto;
     margin-bottom: 10px; /* Add bottom margin between inputs */
-    width: 95%; /* Ensure inputs take full width */
+    width: 70%;
   }
 
   .add-button {
-    width: 100%; /* Ensure button takes full width */
+    width: 30%; /* Ensure button takes full width */
+    margin: auto;
   }
 }
 
