@@ -48,7 +48,7 @@ const AIInsights = () => {
           `Your total expenses over the last 6 months are $${totalExpenses}.`,
           `Your current balance is $${balance}.`,
           balance > 1000 ? "Great job! You have a healthy balance." : "Consider cutting down on expenses to save more.",
-          totalExpenses > totalIncome ? "Warning: Your expenses exceed your income." : "Your income covers your expenses."
+          totalExpenses > totalIncome ? "Warning: Your expenses exceed your income." : (balance === 0 ? "Your income is equal to your expense." : "Your income covers your expenses.")
         ];
 
         setInsights(insights);
@@ -75,7 +75,7 @@ const AIInsights = () => {
       <h2>Financial Insights</h2>
       <ul>
         {insights.map((insight, index) => (
-          <li key={index} className={index === insights.length - 1 ? (balanceState > 0 ? 'green-color' : 'red-color') : ''}>{insight}</li>
+          <li key={index} className={index === insights.length - 1 ? (balanceState > 0 ? 'green-color' : (balanceState < 0 ? 'red-color' : 'neutral-color')) : ''}>{insight}</li>
         ))}
       </ul>
     </div>

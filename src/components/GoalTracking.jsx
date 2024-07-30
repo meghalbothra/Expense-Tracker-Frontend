@@ -41,78 +41,59 @@ const GoalTracking = () => {
   const handleAddGoal = async () => {
     const amount = parseFloat(newGoalAmount);
     const allocation = parseFloat(newGoalAllocation);
-
+  
     if (newGoalName && amount > 0 && allocation >= 0) {
       if (allocation > amount) {
         toast.error("Initial allocation cannot exceed the goal amount.", {
           position: "top-center",
           autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "colored",
-          transition: Slide
+          transition: Slide,
         });
         return;
       }
-
+  
       const newGoal = { name: newGoalName, amount, allocation };
-
+  
       try {
         const response = await axios.post('https://expense-tracker-backend-rav8.onrender.com/api/v1/auth/goals', newGoal, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        setGoals([...goals, { ...response.data, amount, allocation, achieved: false }]);
+  
+        // Check if the initial allocation equals the total goal amount
+        const achieved = allocation === amount;
+  
+        setGoals([...goals, { ...response.data, amount, allocation, achieved }]);
         setNewGoalName('');
         setNewGoalAmount('');
         setNewGoalAllocation('');
-
-        // Show success toast notification
         toast.success('Goal added successfully!', {
           position: "top-center",
           autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "colored",
-          transition: Slide
+          transition: Slide,
         });
       } catch (error) {
         console.error('Error adding goal:', error);
-        // Show error toast notification
         toast.error('Error adding goal. Please try again.', {
           position: "top-center",
           autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "colored",
-          transition: Slide
+          transition: Slide,
         });
       }
     } else {
       toast.error("Please fill in all fields with valid amounts.", {
         position: "top-center",
         autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "colored",
-        transition: Slide
+        transition: Slide,
       });
     }
   };
-
+  
   const handleAdditionalAllocationChange = (index, value) => {
     const updatedAllocations = { ...additionalAllocation, [index]: value };
     setAdditionalAllocation(updatedAllocations);

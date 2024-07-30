@@ -81,6 +81,10 @@ body {
   color: red;
 }
 
+.ai-insights li.neutral-color {
+  color: #007bff;
+}
+
 @media (max-width: 800px) {
   .ai-insights {
     width: 50%;
