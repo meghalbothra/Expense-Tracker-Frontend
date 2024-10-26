@@ -1,5 +1,5 @@
 .income-container {
-  background-color: #fff;
+ background-color: #fff;
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -95,7 +95,6 @@
 
 .add-income-form {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
